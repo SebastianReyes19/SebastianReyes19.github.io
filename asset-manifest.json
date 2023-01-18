@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/SebastianReyes19.github.io/static/css/main.073c9b0a.css",
+    "main.js": "/SebastianReyes19.github.io/static/js/main.614849be.js",
+    "static/js/787.2e2e3f01.chunk.js": "/SebastianReyes19.github.io/static/js/787.2e2e3f01.chunk.js",
+    "static/media/logo.svg": "/SebastianReyes19.github.io/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/SebastianReyes19.github.io/index.html",
+    "main.073c9b0a.css.map": "/SebastianReyes19.github.io/static/css/main.073c9b0a.css.map",
+    "main.614849be.js.map": "/SebastianReyes19.github.io/static/js/main.614849be.js.map",
+    "787.2e2e3f01.chunk.js.map": "/SebastianReyes19.github.io/static/js/787.2e2e3f01.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.614849be.js"
+  ]
+}
