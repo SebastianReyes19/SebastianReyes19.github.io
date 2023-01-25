@@ -7,9 +7,6 @@ function App() {
     <div className="App">
       <Header/>
       <Canvas/>
-      <h1>
-        Hello React.
-      </h1>
     </div>
   );
 }

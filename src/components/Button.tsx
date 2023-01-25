@@ -1,3 +1,4 @@
+import './Button.scss';
 
 interface butProps {
     text: string,
@@ -5,14 +6,14 @@ interface butProps {
 };
 
 function Button(items: butProps){
+
+    
+
+
     return(
-        <div>
-            <a>
-            <button className={items.className}>
-                {items.text}
-            </button>
-            </a>
-        </div>
+        <button className={items.className}>
+            {items.text}
+        </button>
     )
 }
 

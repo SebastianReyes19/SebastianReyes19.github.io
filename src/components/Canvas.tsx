@@ -16,15 +16,15 @@ function Canvas(){
     var mat = new THREE.MeshNormalMaterial({flatShading: true});
     
     var sphere = new THREE.Mesh(geometry, mat);
-
     scene.add(sphere);
+    sphere.rotation.set(0, 0, Math.PI * 23.5 / 180);
 
     camera.position.z = 5;
 
     var animation = function (){
         setTimeout(function(){
             requestAnimationFrame(animation);
-            sphere.rotation.y += 1;
+            sphere.rotateY(.1);
             renderer.render(scene, camera);
         }, 1000/2)
     };

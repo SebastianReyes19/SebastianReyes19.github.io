@@ -3,12 +3,18 @@ import Button from './Button';
 
 function Header(){
     let str = ['Home', 'About Me', 'Contact']
-    let span = "span" + str.length.toString();
-    console.log(span)
     return(  
-        <div className='row-fluid'>
+        <div style={
+            {
+            display: 'grid',
+            justifyContent: 'space-around',
+            position: 'absolute',
+            top: '10px',
+            //padding: '10px'
+            }
+        }>
             {str.map((item) =>{
-                return <div className={span}>
+                return <div>
                     <Button text={item} className='Header-Button'></Button>
                 </div>
             })}
