@@ -6,10 +6,6 @@ interface butProps {
 };
 
 function Button(items: butProps){
-
-    
-
-
     return(
         <button className={items.className}>
             {items.text}

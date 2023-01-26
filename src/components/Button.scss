@@ -1,25 +1,16 @@
 .Header-Button {
-    color: white;
-    background: none;
+    color: rgb(109, 109, 109);
+    background-color: inherit;
     border: none;
-    margin: 0;
-    margin-top: 20%;
-    margin-bottom: 20%;
-    margin-left: 10%;
-    padding: 0;
+    padding: 15px 50px;
     font-size: large;
-    white-space: nowrap;
     cursor: pointer;
     text-align: justify;
 
-    &::after{
-        content: '';
-        display: inline-block;
-        width: 99.5%;
-    }
-
     &:hover {
-        color: blueviolet;
+        background-color: rgb(109, 109, 109);
+        color: black;
+        transition: background .3s ease-out;
     }
 
     &:active {
