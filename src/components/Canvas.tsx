@@ -12,35 +12,32 @@ function Canvas(){
     
     document.body.appendChild(renderer.domElement);
 
-    var geometry = new THREE.SphereGeometry(1.5, 20, 10);
-    var little = new THREE.SphereGeometry(.05, 10, 10);
+    var planet = new THREE.SphereGeometry(1.5, 20, 10);
+    var little = new THREE.SphereGeometry(.375, 10, 10);
+
     var mat = new THREE.MeshNormalMaterial({flatShading: true});
     
-    var sphere = new THREE.Mesh(geometry, mat);
+    var sphere = new THREE.Mesh(planet, mat);
     var moon = new THREE.Mesh(little, mat);
+
     moon.position.x += 3;
 
-    var axis = new THREE.Vector3(0, 1, 0).normalize();
-    var center = new THREE.Vector3(0, 0, 0);
+    var group = new THREE.Group();
 
-    scene.add(sphere);
-    scene.add(moon);
-    
-    sphere.rotation.set(0, 0, Math.PI * 23.5 / 180);
+    group.add(sphere);
+    group.add(moon);
+
+    scene.add(group);
+
+    group.rotation.set(0, 0, tilt);
 
     camera.position.z = 5;
 
     var animation = function (){
         setTimeout(function(){
             requestAnimationFrame(animation);
-            sphere.rotateY(.1);
-            var q = new THREE.Quaternion();
-            q.setFromAxisAngle(axis, Math.PI * 2.5 / 180);
-            moon.applyQuaternion(q);
-            moon.position.sub(center);
-            moon.rotateY(.5);
-            moon.position.applyQuaternion(q);
-            moon.position.add(center);
+            group.rotateY(.1);
+            sphere.rotateY(.5);
             renderer.render(scene, camera);
         }, 100/2)
     };
