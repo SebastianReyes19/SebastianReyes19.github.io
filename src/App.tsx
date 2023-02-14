@@ -5,13 +5,11 @@ import Intro from './components/Intro';
 
 function App() {
   return (
-    <>
-    <Header/>
-    <div className="App">
+    <div className='App'>
+      <Header/>
       <Intro/>
       <Canvas/>
     </div>
-    </>
   );
 }
 

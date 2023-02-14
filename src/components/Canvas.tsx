@@ -1,14 +1,15 @@
+import './Canvas.scss'
 import * as THREE from "three"
 
 function Canvas(){
     var scene = new THREE.Scene();
-    var camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+    var camera = new THREE.PerspectiveCamera(75, window.outerWidth/window.outerHeight, 0.1, 1000);
     var renderer = new THREE.WebGLRenderer({
         antialias: true,
         //alpha: true <- at deployment i will undo this...
     });
     var tilt = Math.PI * 23.5 / 180;    
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(window.outerWidth, window.outerHeight);
     
     document.body.appendChild(renderer.domElement);
 
@@ -61,9 +62,9 @@ function Canvas(){
 
     window.addEventListener('resize', onWindowResize, false);
     function onWindowResize(){
-        camera.aspect = window.innerWidth /window.innerHeight;
+        camera.aspect = window.outerWidth /window.outerHeight;
         camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setSize(window.outerWidth, window.outerHeight);
         renderer.render(scene, camera);
     }
 
