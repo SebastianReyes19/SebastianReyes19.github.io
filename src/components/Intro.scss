@@ -1,0 +1,38 @@
+.intro{
+    overflow-wrap: normal;
+    animation: fade-in 3s ease-in 0s;
+    width: max-content;
+
+    &.Statement{
+        position: absolute;
+        background-color: rgba(152, 152, 152, 0.87);
+        top: 30%;
+        left: 20%;
+        padding: 10px;
+        border: 100px;
+        width: 35%;
+        max-height: min-content;
+        z-index: 2;
+    }
+    &.Photo{
+        position: absolute;
+        border: 10px;
+        top:30%;
+        left:60%;
+        img {
+            width: 40%;
+            height: 40%;
+        }
+    }
+    h1, p{
+        color: black;
+        font-weight: bold;
+    }
+}
+
+
+
+@keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}

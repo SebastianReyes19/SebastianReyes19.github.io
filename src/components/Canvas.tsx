@@ -25,6 +25,7 @@ function Canvas(){
     var moon = new THREE.Mesh(little, mat);
 
     var orbit = new THREE.Mesh(circle, dynamMat);
+    
     var innerO = new THREE.Mesh(innerC, dynamMat);
 
     moon.position.x += 3;
@@ -69,7 +70,7 @@ function Canvas(){
     animation();
 
     return(
-        <>{console.log("Hey I rendered...")}</>
+        <>{console.log("Rendered canvas")}</>
     )
 }
 
