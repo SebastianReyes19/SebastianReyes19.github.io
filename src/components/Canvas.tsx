@@ -1,12 +1,14 @@
 import './Canvas.scss'
+
 import * as THREE from "three"
+import { RenderPass, EffectPass, EffectComposer, DotScreenEffect} from 'postprocessing';
 
 function Canvas(){
     var scene = new THREE.Scene();
     var camera = new THREE.PerspectiveCamera(75, window.outerWidth/window.outerHeight, 0.1, 1000);
     var renderer = new THREE.WebGLRenderer({
         antialias: true,
-        //alpha: true <- at deployment i will undo this...
+        alpha: true //<- at deployment i will undo this...
     });
     var tilt = Math.PI * 23.5 / 180;    
     renderer.setSize(window.outerWidth, window.outerHeight);
@@ -43,6 +45,13 @@ function Canvas(){
     group.rotation.set(0, 0, tilt);
     camera.position.z = 7.5;
 
+    const composer = new EffectComposer(renderer);
+    composer.addPass( new RenderPass( scene, camera ) );
+
+    composer.addPass( new EffectPass(camera, new DotScreenEffect(
+        {
+            scale: 2.3
+    })));
     var animation = function (){
         setTimeout(function(){
             requestAnimationFrame(animation);
@@ -51,9 +60,10 @@ function Canvas(){
             sphere.rotateY(.5);
             orbit.rotateZ(.01);
             innerO.rotateZ(-.01);
-
-            renderer.render(scene, camera);
-        }, 2)
+            
+            composer.render();
+            //renderer.render(scene, camera);
+        }, 4)
     };
 
     setInterval(() => {

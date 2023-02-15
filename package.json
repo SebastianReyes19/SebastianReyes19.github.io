@@ -13,6 +13,7 @@
     "@types/react-dom": "^18.0.10",
     "@types/three": "^0.148.0",
     "animate.css": "^4.1.1",
+    "postprocessing": "^6.29.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
