@@ -7,7 +7,7 @@ interface butProps {
 
 function Button(items: butProps){
     return(
-        <button className={items.className}>
+        <button className={items.className} id={items.text + "-btn"}>
             {items.text}
         </button>
     )
