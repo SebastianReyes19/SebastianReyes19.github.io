@@ -75,7 +75,7 @@ function Canvas(){
         camera.aspect = window.outerWidth /window.outerHeight;
         camera.updateProjectionMatrix();
         renderer.setSize(window.outerWidth, window.outerHeight);
-        renderer.render(scene, camera);
+        composer.setSize(window.outerWidth, window.outerHeight);
     }
 
     animation();
