@@ -2,7 +2,7 @@ import "./Header.scss"
 import Button from './Button';
 
 function Header(){
-    let str = ['Home', 'About Me', 'Contact']
+    const str = ['Home', 'About Me', 'Projects','Contact']
 
     return(  
         <>
