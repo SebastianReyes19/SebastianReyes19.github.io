@@ -3,6 +3,18 @@ import './Canvas.scss'
 import * as THREE from "three"
 import { RenderPass, EffectPass, EffectComposer, DotScreenEffect} from 'postprocessing';
 
+function createStar(group:THREE.Group){
+    const geo = new THREE.SphereGeometry(0.075, 24, 24);
+    const material = new THREE.MeshBasicMaterial();
+
+    const star = new THREE.Mesh(geo, material);
+
+    const [x, y, z] = Array(3).fill(3).map(() => THREE.MathUtils.randFloatSpread(20)); 
+    star.position.set(x, y, z);
+
+    group.add(star);
+}
+
 function Canvas(){
     var scene = new THREE.Scene();
     var camera = new THREE.PerspectiveCamera(75, window.outerWidth/window.outerHeight, 0.1, 1000);
@@ -34,6 +46,13 @@ function Canvas(){
     moon.position.x += 3;
 
     var group = new THREE.Group();
+    var stars = new THREE.Group();
+
+    for (var i = 0; i < 75; i++){
+        createStar(stars);
+    }
+    
+    scene.add(stars);
 
     group.add(sphere);
     group.add(moon);
@@ -43,6 +62,7 @@ function Canvas(){
     scene.add(innerO);
 
     group.rotation.set(0, 0, tilt);
+    stars.rotation.set(0, 0, tilt);
     camera.position.z = 7.5;
 
     const composer = new EffectComposer(renderer);
@@ -52,9 +72,14 @@ function Canvas(){
         {
             scale: 2.3
     })));
+
     var animation = function (){
         setTimeout(function(){
             requestAnimationFrame(animation);
+            
+            stars.rotation.z += .01;
+            stars.rotation.y += .01;
+            stars.rotation.x += .01;
 
             group.rotateY(.1);
             sphere.rotateY(.5);
