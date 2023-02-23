@@ -49,6 +49,7 @@ function Canvas(){
     scene.add(stars);
 
     group.add(tr1, tr2);
+    group.position.x += 3;
 
     scene.add(group);
 
