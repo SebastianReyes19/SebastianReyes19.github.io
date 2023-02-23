@@ -27,23 +27,17 @@ function Canvas(){
     
     document.body.appendChild(renderer.domElement);
 
-    var planet = new THREE.SphereGeometry(1.5, 20, 10);
-    var little = new THREE.SphereGeometry(.375, 10, 10);
-
-    var circle = new THREE.RingGeometry(6.5, 7, 32, 1, 0, Math.PI * 2);
-    var innerC = new THREE.RingGeometry(5, 5.5);
+    var tetra = new THREE.TetrahedronGeometry(2);
     
     var mat = new THREE.MeshNormalMaterial({flatShading: true});
     var dynamMat = new THREE.MeshBasicMaterial();
     
-    var sphere = new THREE.Mesh(planet, mat);
-    var moon = new THREE.Mesh(little, mat);
+    var tr1 = new THREE.Mesh(tetra, mat);
+    var tr2 = new THREE.Mesh(tetra, mat);
 
-    var orbit = new THREE.Mesh(circle, dynamMat);
-    
-    var innerO = new THREE.Mesh(innerC, dynamMat);
+    const halfpi = Math.PI * .5;
 
-    moon.position.x += 3;
+    tr2.setRotationFromEuler(new THREE.Euler(halfpi, halfpi, halfpi));
 
     var group = new THREE.Group();
     var stars = new THREE.Group();
@@ -54,12 +48,9 @@ function Canvas(){
     
     scene.add(stars);
 
-    group.add(sphere);
-    group.add(moon);
+    group.add(tr1, tr2);
 
     scene.add(group);
-    scene.add(orbit);
-    scene.add(innerO);
 
     group.rotation.set(0, 0, tilt);
     stars.rotation.set(0, 0, tilt);
@@ -81,10 +72,9 @@ function Canvas(){
             stars.rotation.y += .01;
             stars.rotation.x += .01;
 
-            group.rotateY(.1);
-            sphere.rotateY(.5);
-            orbit.rotateZ(.01);
-            innerO.rotateZ(-.01);
+            group.rotateY(.01);
+            group.rotateZ(.02);
+            group.rotateX(-.01);
             
             composer.render();
             //renderer.render(scene, camera);
