@@ -1,32 +1,44 @@
-.intro{
-    overflow-wrap: normal;
-    animation: fade-in 3s ease-in 0s;
-    width: max-content;
+//Helper CSS
+//*{
+//    border: 2px dashed yellow;
+//}
 
+.intro{
+    position: absolute;
+    left: 10%;
+    top: 25%;
+    transform: translate(-10%, 0);
+    animation: fade-in 3s ease-in 0s;
+    display: inline-block;
+    
+    padding: 10px;
+    border-image: linear-gradient(to left ,rgba(0, 255, 255, 0.0), rgb(136, 0, 136)) 20;
+    border-width: 5px;
+    border-style: solid;
+
+    *{
+        border: 0;
+    }
+    
     &.Statement{
-        position: absolute;
-        background-color: rgba(152, 152, 152, 0.87);
-        top: 30%;
-        left: 20%;
-        padding: 10px;
-        border: 100px;
-        width: 35%;
-        max-height: min-content;
-        z-index: 2;
+        position: relative;
+        width: 40vw;
+        background-image: linear-gradient(to right, rgba(128, 128, 128, 0.814), rgba(33, 33, 33, 0.151)); 
     }
     &.Photo{
-        position: absolute;
-        border: 10px;
-        top:30%;
-        left:60%;
+        position: relative;
+        display: flex;
         img {
-            width: min(calc(30vw * .9), 40%);
-            height: min(calc(30vw * .9), 40%);
+            $imgsize: min(30vw, 30vh);
+            width: $imgsize;
+            height: $imgsize;
         }
     }
     h1, p{
-        color: black;
+        color: rgb(255, 255, 255);
         font-weight: bold;
+        font-size: min(2.5vw, 2.5vh);
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     }
 }
 
