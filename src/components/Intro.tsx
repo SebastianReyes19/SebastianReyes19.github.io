@@ -9,13 +9,13 @@ function AboutMe(){
                     Welcome.
                 </h1>
                 <p>
-                    My name is Sebastian Reyes
+                    My name is Sebastian Reyes,
                     <br/>
-                    a Computer Science Undergraduate at Texas A&M University.
+                    Computer Science Senior at Texas A&M University.
                     <br/>
-                    I currently specialize in web, software, and 
+                    I currently specialize in web, software,
                     <br/>
-                    game development and computer graphics.
+                    game development, and computer graphics.
 
                 </p>
             </div>
