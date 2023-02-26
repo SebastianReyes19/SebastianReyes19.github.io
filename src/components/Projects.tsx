@@ -54,7 +54,7 @@ function Projects(){
         <div className='container'>
             {proj}
             <div>
-                <button className='Next-Button'>
+                <button className='Next-Button' onClick={setProj}>
                     Next {'>>'}
                 </button>
             </div>
