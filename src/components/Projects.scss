@@ -1,10 +1,10 @@
-.intro{
+.container{
     position: absolute;
     left: 10%;
     top: 25%;
     transform: translate(-10%, 0);
     animation: fade-in 2.4s ease-out 0s;
-    
+
     padding: 10px;
     margin: 10px;
 
@@ -15,33 +15,43 @@
     *{
         position: relative;
         border: 0;
+        margin: 10px;
     }
     
 }
 
-.statement{
-    background-image: linear-gradient(to right, rgba(128, 128, 128, 0.814), rgba(33, 33, 33, 0.151)); 
-    padding: 10px;
-    margin: 10px;
+.block{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
+.desc{
+    background-image: linear-gradient(to right, rgba(128, 128, 128, 0.814), rgba(33, 33, 33, 0.151)); 
+    width: min(50%, 50vw);
     h1, p{
         color: rgb(255, 255, 255);
         font-weight: bold;
-        font-size: min(3vw, 3vh);
+        font-size: min(2.5vw, 2.5vh);
         font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     }
-}
-.photo{
-    transform: translate(10px, 0);
-    display: flex;
-    justify-content: center;
-    img {
-        $imgsize: min(30vw, 30vh);
-        object-fit: cover;
-        width: $imgsize;
-        height: $imgsize;
+    a{
+        text-indent: 100%;
+        color: rgb(255, 255, 255);
+        background-color: black;
     }
 }
+
+.photo{
+
+    img {
+        $prsize: max(20vw, 30vh);
+        object-fit: cover;
+        width: 100%;
+        height: $prsize;
+    }
+}
+
 
 
 @keyframes fade-in {

@@ -14,7 +14,20 @@
         transition: background .3s ease-out;
     }
 
-    &:active {
-        //...
+}
+
+.Next-Button {
+    color: rgb(109, 109, 109);
+    background-color: inherit;
+    border: none;
+    padding: 15px 50px;
+    font-size: large;
+    font-style: bold;
+    cursor: pointer;
+
+    &:hover {
+        background-color: rgb(109, 109, 109);
+        color: black;
+        transition: background .3s ease-out;
     }
 }

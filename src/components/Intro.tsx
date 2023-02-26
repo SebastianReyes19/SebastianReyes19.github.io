@@ -4,7 +4,7 @@ import portrait from '../portrait.jpg'
 function AboutMe(){
     return(
         <div className='intro'>
-            <div className='intro Statement'>
+            <div className='statement'>
                 <h1>
                     Welcome.
                 </h1>
@@ -18,9 +18,6 @@ function AboutMe(){
                     game development, and computer graphics.
 
                 </p>
-            </div>
-            <div className='intro Photo'>
-                <img src={portrait} alt="Sebastian Reyes"/>
             </div>
         </div>
     )

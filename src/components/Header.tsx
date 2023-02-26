@@ -1,37 +1,33 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import "./Header.scss"
 import "./Button.scss"
 import Intro from './Intro';
+import Projects from './Projects'
 
 function Header(){
-    const str = ['Home', 'About Me', 'Projects','Contact']
+    const str = ['Home', 'Projects', 'Contact']
+    const comps: {[key: string]: JSX.Element}= { 
+        Home: <Intro/>,
+        Projects: <Projects/>,
+        Contacts: <></>
+    }
+    
+    const [comp, setComp] = useState(comps['Home']);
 
     const [activeComp, setActiveComp] = useState('Home');
 
     function buttonClick(comp: string){
-        switch (comp) {
-            case str[0]:
-                setActiveComp(comp);
-                break;
-            case str[1]:
-                setActiveComp(comp);
-                break;
-            case str[2]:
-                setActiveComp(comp);
-                break;
-            case str[3]:
-                setActiveComp(comp);
-                break
-            default:
-                setActiveComp(str[0]);
-                break;
-        }
+        setActiveComp(comp)
     }
+
+    useEffect(()=>{
+        setComp(comps[activeComp])
+    }, [activeComp]);
 
     return(  
         <>
             <div className={"header"}>
-                {str.map((item) =>{
+                {Object.keys(comps).map((item) =>{
                     return <div className="header-content">
                         <button className="Header-Button" id={item + "-btn"} onClick={() => buttonClick(item)}>
                             {item}
@@ -40,7 +36,7 @@ function Header(){
                 })
                 }
             </div>
-            {activeComp === str[0] ? <Intro/> : null}
+            {comp}
         </>
     )
 }
